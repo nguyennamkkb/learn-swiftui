@@ -20,14 +20,14 @@ struct Slide11__Breakingdown_StateObject: View {
                 vm.logout()
             }
         case .loggedOut:
-            LoginView(user: $vm.user) {
+            LoginViewA(user: $vm.user) {
                 vm.login()
             }
         }
     }
 }
 
-struct LoginView: View {
+struct LoginViewA: View {
     @Binding var user: User
     var didTapLogin: (() -> Void)?
     var body: some View {
