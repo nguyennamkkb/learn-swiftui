@@ -17,20 +17,32 @@ struct Slide3_Border: View {
 //        Text("Hello, World!")
 //            .padding()
 //            .overlay(
-//                RoundedRectangle(cornerRadius: 5)
+//                RoundedRectangle(cornerRadius: 12)
 //                    .stroke(.blue, lineWidth: 5)
 //            )
 
-        Rectangle()
-            .strokeBorder(
-                AngularGradient(
-                    gradient: Gradient(colors: [.red, .green, .red]),
-                    center: .center,
-                    endAngle: .degrees(360)
-                ),
-                lineWidth: 6
+        Text("Hello, World!")
+            .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(
+                        AngularGradient(
+                            gradient: Gradient(colors: [.red, .green, .red]),
+                            center: .center,
+                            endAngle: .degrees(360)
+                        )
+                        , lineWidth: 5)
             )
-            .cornerRadius(12)
+
+//        Rectangle()
+//            .strokeBorder(
+//                AngularGradient(
+//                    gradient: Gradient(colors: [.red, .green, .red]),
+//                    center: .center,
+//                    endAngle: .degrees(360)
+//                ),
+//                lineWidth: 6
+//            )
             .frame(width: 100, height: 200)
     }
 }

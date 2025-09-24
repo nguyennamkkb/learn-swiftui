@@ -5,11 +5,12 @@
 //  Created by Nguyen Luong Nam on 23/9/25.
 //
 
+import Combine
 import SwiftUI
 
 struct LoginView: View {
-    @ObservedObject var viewModel = UserViewModel()
-    @State var appName: String = "Mini App"
+    @StateObject var viewModel = UserViewModel()
+    @State private var appName: String = "Mini App"
     var body: some View {
         ZStack {
             LinearGradient(colors: [.red, .yellow], startPoint: .top, endPoint: .bottom)
@@ -35,6 +36,11 @@ struct LoginView: View {
                     loginTap: {
                         viewModel.login()
                     })
+//                Text("Hello")
+//                    .padding()
+//                    .background(Color.yellow)
+//                    .cornerRadius(62)
+//                    .border(Color.red, width: 3)
             case .required:
                 ProgressView()
             }

@@ -23,6 +23,7 @@ struct LoginForm: View {
                         .scaledToFill()
                         .clipShape(Circle())
                 )
+            
 
             Text("Login View")
                 .font(.largeTitle)
