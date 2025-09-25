@@ -8,20 +8,34 @@
 import Combine
 import SwiftUI
 
+class AppTheme: ObservableObject {
+    @Published var textColor: Color = .red
+    init(textColor: Color) {
+        self.textColor = textColor
+    }
+}
+
 struct LoginView: View {
+    
+
     @StateObject var viewModel = UserViewModel()
     @State private var appName: String = "Mini App"
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.red, .yellow], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [.red, .yellow], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
 
             switch viewModel.currentState {
             case .isLoading:
                 VStack(spacing: 12) {
                     ProgressView()
+                        .tint(.white)
                     Text("Loading...")
+                        .foregroundStyle(.white)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.black.opacity(0.7))
+
             case .loggedIn:
                 LogoutForm(
                     appName: $appName,
@@ -36,6 +50,7 @@ struct LoginView: View {
                     loginTap: {
                         viewModel.login()
                     })
+//                EmptyView()
 //                Text("Hello")
 //                    .padding()
 //                    .background(Color.yellow)
@@ -49,5 +64,6 @@ struct LoginView: View {
 }
 
 #Preview {
+    
     LoginView()
 }

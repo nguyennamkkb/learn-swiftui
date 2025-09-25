@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var appTheme2 = AppTheme(textColor: .blue)
+    @StateObject var appTheme1 = AppTheme(textColor: .red)
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        return LoginView()
     }
 }
 

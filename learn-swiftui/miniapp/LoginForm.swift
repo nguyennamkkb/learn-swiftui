@@ -15,7 +15,8 @@ struct LoginForm: View {
     var loginTap: () -> Void
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Circle()
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.blue)
                 .frame(width: 100, height: 100)
                 .overlay(
                     Image(.image1)
@@ -23,7 +24,7 @@ struct LoginForm: View {
                         .scaledToFill()
                         .clipShape(Circle())
                 )
-            
+                .background(Color.white)
 
             Text("Login View")
                 .font(.largeTitle)
@@ -64,4 +65,8 @@ struct LoginForm: View {
         }
         .padding(.horizontal, 26)
     }
+}
+
+#Preview {
+    LoginView()
 }
